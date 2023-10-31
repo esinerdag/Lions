@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Searh Sales Agent Name" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <lightning-input
+                label="Start Entering search"
+                type="search"
+                value={searchWord}
+                onkeyup={seacrhHandler}>
+            </lightning-input>
+        </div>
+        <template if:true={saDetails}>
+            <template for:each={saDetails} for:item="sa">
+                <div key={sa.Id}>
+
+                    <article class="slds-tile">
+                        <h3 class="slds-tile__title slds-truncate" title="Sales Agents" >
+                          <a href="#">Sales Agents</a>
+                        </h3>
+                        <div class="slds-tile__detail">
+                          <dl class="slds-list_horizontal slds-wrap">
+                            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Name">Name:</dt>
+                           
+                            <dd class="slds-item_detail slds-truncate" title="Sa.Name">{sa.Name}</dd>
+                           
+                            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Customer Handled">Customer Handled:</dt>
+                            
+                            <dd class="slds-item_detail slds-truncate" title="sa.Customer Handled">{sa.Customer_Handled__c}</dd>
+                          </dl>
+                        </div>
+                      </article>
+
+
+                </div>
+           
+            </template>
+        </template>
+        
+    </div>
+</lightning-card>  
+</template>
